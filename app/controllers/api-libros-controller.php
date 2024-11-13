@@ -9,7 +9,7 @@ class LibroController {
     public function __construct() {
         $this->model = new LibroModel();
         $this->view = new JsonView();
-        $this->data = file_get_contents("php::/input");
+        $this->data = file_get_contents("php://input");
     }
 
     private function getData() {
@@ -46,7 +46,7 @@ class LibroController {
         if($libro) {
             $this->view->response($libro);
         } else{ 
-            $this->view->response('El libro no esta disponible', 400);
+            $this->view->response('El libro no esta disponible', 404);
         }
     }
 
@@ -57,7 +57,7 @@ class LibroController {
             $this->model->eliminar($id);
             $this->view->response($libro);
         } else {
-            $this->view->response('El libro no existe', 400);
+            $this->view->response('El libro no existe', 404);
         }
     }
 
@@ -67,8 +67,8 @@ class LibroController {
             $this->view->response('Complete los datos',400);
         } else {
             $id = $this->model->insertarLibro($libros->ID_Libro,$libros->Titulo, $libros->Autor, $libros->Genero, $libros->Editorial, $libros->Precio);
-            $libros = $this->model->getLibro($id);
-            $this->view->response($libros, 201);
+            $libro = $this->model->getLibro($id);
+            $this->view->response($libro, 201);
         }
     }
 
