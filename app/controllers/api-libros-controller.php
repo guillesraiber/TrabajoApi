@@ -41,7 +41,7 @@ class LibroController {
     }
     
     public function getLibro($params = null) {
-        $id = $params['ID_Libro'];
+        $id = $params->params->{':ID'};
         $libro = $this->model->getLibro($id);
         if($libro) {
             $this->view->response($libro);
@@ -51,7 +51,7 @@ class LibroController {
     }
 
     public function eliminarLibro($params = null) {
-        $id = $params['ID_Libro'];
+        $id = $params->params->{':ID'};
         $libro = $this->model->getLibro($id);
         if($libro) {
             $this->model->eliminar($id);
@@ -73,7 +73,7 @@ class LibroController {
     }
 
     public function actualizar($params = null) {
-        $id = $params['ID_Libro'];
+        $id = $params->params->{':ID'};
         $libro = $this->model->getLibro($id);
         $NewBook = $this->getData();
         if($libro) {
