@@ -14,7 +14,7 @@ class UserController {
 
     public function getToken() {
         $auth_header = $_SERVER['HTTP_AUTHORIZATION'];
-        $auth_header = explode('', $auth_header);
+        $auth_header = explode(' ', $auth_header);
         if(count($auth_header) !=2) {
             return $this->view->response("Error en datos ingresados", 400);
         }
@@ -30,8 +30,8 @@ class UserController {
 
         //Generamos el token
         $token = crearJWT(array(
-            'sub'=> $user->id,
-            'nombre' => $user->nombre,
+            'sub'=> $user->ID_Usuario,
+            'nombre' => $user->Nombre,
             'role' =>'admin',
             'iat' =>time(),
             'exp' => time() + 60,
