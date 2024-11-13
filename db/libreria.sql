@@ -146,8 +146,8 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8,
+  ADD CONSTRAINT unique_nombre UNIQUE (Nombre);
 --
 -- Restricciones para tablas volcadas
 --
