@@ -14,15 +14,13 @@ $router->addRoute('libros', 'GET', 'LibroController',   'mostarLibros');
 //Libros por id
 $router->addRoute('libros/:ID','GET','LibroController','getLibro');
 //Eliminar Libro
-//$route->addRoute('libros/:ID','DELETE','LibroController','eliminarLibro');
+$router->addRoute('libros/:ID','DELETE','LibroController','eliminarLibro');
 //Agregar libro
 $router->addRoute('libros','POST','LibroController','agregarLibro');
 //Modifica un libro
 $router->addRoute('libros/:ID','PUT','LibroController','actualizar');
-
+//Obtener token
 $router->addRoute('usuarios/token','GET','UserController','getToken');
-
-$router->setDefaultRoute("ErrorController","notFound");
 
 //rutea
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
