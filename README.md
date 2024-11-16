@@ -21,5 +21,7 @@ ORDENAR ASCENDENTE Y/O DESCENDENTE POR PRECIO
 Filtrado POR PRECIO
 /TrabajoApi-main/api/libros?filter=precio
 
+Obtenet Token
+/TrabajoApi-main/api/usuarios/token
 
 
